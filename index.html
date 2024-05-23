@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="manifest" href="manifest.json">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap');
 
         html, body {
             margin: 0;
@@ -64,6 +64,28 @@
             z-index: 5; /* Ensure it appears above the background but below the popup */
         }
 
+        #name {
+            position: absolute; /* Position relative to the body */
+            top: 10vh; /* Position from the top relative to viewport height */
+            left: 18vw; /* Position from the left relative to viewport width */
+            font-family: 'Roboto-Regular', sans-serif;
+            font-weight: 400;
+            font-size: 5vw; /* Font size relative to viewport width */
+            color: black;
+            z-index: 5; /* Ensure it appears above the background but below the popup */
+        }
+
+        #contact {
+            position: absolute; /* Position relative to the body */
+            top: 12.8vh; /* Position from the top relative to viewport height */
+            left: 42vw; /* Position from the left relative to viewport width */
+            font-family: 'Roboto-Regular', sans-serif;
+            font-weight: 350;
+            font-size: 4vw; /* Font size relative to viewport width */
+            color: black;
+            z-index: 5; /* Ensure it appears above the background but below the popup */
+        }
+
         #bottom-image {
             position: absolute; /* Position relative to the body */
             bottom: 0; /* Align to the bottom of the viewport */
@@ -74,13 +96,15 @@
 </head>
 <body>
     <div id="amount">1.200.000,00</div>
+    <div id="name">Lindawaty</div>
+    <div id="contact">9018 9363 5940</div>
     
     <img id="bottom-image" src="seabankbawah.png" alt="Bottom Image">
 
     <div id="popup">
-        Seabank sedang dalam Maintenance
+        Akun ini sedang dalam verifikasi pemeriksaan, semua transaksi yang dilakukan dan bunga akan diproses setelah verifikasi berhasil. (max 1x24jam)
         <br>
-        <button id="okButton">OK</button>
+        <button id="okButton">Oke</button>
     </div>
 
     <script>
