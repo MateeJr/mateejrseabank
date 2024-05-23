@@ -53,6 +53,10 @@
             background-color: orange;
         }
 
+        #amount, #name, #contact {
+            display: none; /* Hide initially */
+        }
+
         #amount {
             position: absolute; /* Position relative to the body */
             top: 26vh; /* Position from the top relative to viewport height */
@@ -124,6 +128,40 @@
             event.stopPropagation(); // Prevent the body click event
         });
 
+        // Function to show text after images are loaded
+        function showText() {
+            document.getElementById('amount').style.display = 'block';
+            document.getElementById('name').style.display = 'block';
+            document.getElementById('contact').style.display = 'block';
+        }
+
+        // Wait for images to load
+        window.addEventListener('load', function() {
+            const images = document.querySelectorAll('img');
+            let loadedCount = 0;
+            images.forEach(img => {
+                if (img.complete) {
+                    loadedCount++;
+                } else {
+                    img.addEventListener('load', () => {
+                        loadedCount++;
+                        if (loadedCount === images.length) {
+                            showText();
+                        }
+                    });
+                    img.addEventListener('error', () => {
+                        loadedCount++;
+                        if (loadedCount === images.length) {
+                            showText();
+                        }
+                    });
+                }
+            });
+            if (loadedCount === images.length) {
+                showText();
+            }
+        });
+
         // Register service worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js')
@@ -137,3 +175,4 @@
     </script>
 </body>
 </html>
+
